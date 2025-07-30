@@ -1,0 +1,36 @@
+type User {
+  userId: ID! 
+  userName: String!
+  email: String!
+  role: String!
+  passwordHash: String!
+}
+
+type Team {
+  teamId: ID!
+  teamName: String!
+  teamMembers: [User!]!
+  teamManager: [User!]!
+}
+
+type Folder {
+  folderId: ID!
+  name: String! 
+  ownerId: ID!
+}
+
+type Notes {
+  noteId: ID! 
+  title: String! 
+  body: String! 
+  folderId: ID!
+  ownerId: ID!
+}
+
+type Query {
+  fetchUsers: [User]
+}
+
+type Mutation {
+  createUser(username: String, email: String, role: String): User
+}
